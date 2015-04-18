@@ -2,7 +2,7 @@
 
 ![Logo](https://avatars3.githubusercontent.com/u/11961573?v=3&s=100)
 
-[![Build Status](https://travis-ci.org/Arkar-Aung/Rabbit-Elixir.svg?branch=master)](https://travis-ci.org/Arkar-Aung/Rabbit-Elixir)
+[![Build Status](https://travis-ci.org/Rabbit-Converter/Rabbit-Elixir.svg)](https://travis-ci.org/Rabbit-Converter/Rabbit-Elixir)
 
 **Another Zawgyi <=> Unicode Converter for elixir**
 
