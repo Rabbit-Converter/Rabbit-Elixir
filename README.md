@@ -4,7 +4,7 @@
 
 [![Build Status](https://travis-ci.org/Rabbit-Converter/Rabbit-Elixir.svg)](https://travis-ci.org/Rabbit-Converter/Rabbit-Elixir)
 
-**Another Zawgyi <=> Unicode Converter for elixir**
+**Another Zawgyi <=> Unicode Converter for [elixir](http://elixir-lang.org)*
 
 ## About
 
