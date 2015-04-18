@@ -1,0 +1,2 @@
+%{"jsx": {:hex, :jsx, "2.5.2"},
+  "mixunit": {:hex, :mixunit, "0.9.1"}}

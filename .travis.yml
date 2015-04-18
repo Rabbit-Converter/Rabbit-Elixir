@@ -1,0 +1,12 @@
+language: elixir
+otp_release:
+  - 17.0
+
+elixir:
+  - 1.0
+
+before_script:
+  - mix test  
+
+notifications:
+  - email: true
