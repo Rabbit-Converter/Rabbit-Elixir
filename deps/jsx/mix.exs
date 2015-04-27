@@ -4,21 +4,16 @@ use Mix.Project
   def project do
     [
       app: :jsx,
-      version: "2.5.2",
+      version: "2.4.0",
       description: "an erlang application for consuming, producing and manipulating json. inspired by yajl",
-      deps: deps(Mix.env),
       package: package,
       language: :erlang,
-      # enable support for maps in jsx
-      erlc_options: opts(Mix.env)
+      erlc_options: [d: :maps_support] ++ extra_opts(Mix.env)
     ]
   end
 
-  defp opts(:dev), do: [d: :TEST]
-  defp opts(_), do: []
-
-  defp deps(:dev), do: [{:mixunit, "~> 0.9.1"}]
-  defp deps(_), do: []
+  defp extra_opts(:dev), do: [d: :TEST]
+  defp extra_opts(_), do: []
 
   defp package do
     [

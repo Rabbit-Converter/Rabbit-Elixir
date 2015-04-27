@@ -3,7 +3,7 @@ defmodule Rabbit.Mixfile do
 
   def project do
     [app: :rabbitElixir,
-     version: "1.0.0",
+     version: "1.0.1",
      elixir: "~> 1.0",
      package: package,
      description: description,
@@ -19,7 +19,7 @@ defmodule Rabbit.Mixfile do
 
   defp description do
     """
-    ParabaikElixirConverter is just a Elixir version of Parabaik converter. It can convert from Unicode to Zawgyi-One and Zawgyi-One to Unicode vice versa.
+    Rabbit : Another Zawgyi <=> Unicode Converter for elixir
     """
   end
 
@@ -42,6 +42,6 @@ defmodule Rabbit.Mixfile do
   #
   # Type `mix help deps` for more examples and options
   defp deps do
-    []
+    [{:exjsx, "~> 3.1.0"}]
   end
 end

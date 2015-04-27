@@ -63,8 +63,6 @@ parse_config([unescaped_jsonp|Rest], Config) ->
     parse_config(Rest, Config#config{unescaped_jsonp=true});
 parse_config([dirty_strings|Rest], Config) ->
     parse_config(Rest, Config#config{dirty_strings=true});
-parse_config([multi_term|Rest], Config) ->
-    parse_config(Rest, Config#config{multi_term=true});
 %% retained for backwards compat, now does nothing however
 parse_config([repeat_keys|Rest], Config) ->
     parse_config(Rest, Config);
@@ -154,7 +152,6 @@ valid_flags() ->
         escaped_strings,
         unescaped_jsonp,
         dirty_strings,
-        multi_term,
         repeat_keys,
         strict,
         stream,
@@ -195,7 +192,6 @@ config_test_() ->
                     escaped_strings = true,
                     unescaped_jsonp = true,
                     dirty_strings = true,
-                    multi_term = true,
                     strict_comments = true,
                     strict_commas = true,
                     strict_utf8 = true,
@@ -204,11 +200,10 @@ config_test_() ->
                     stream = true,
                     uescape = true
                 },
-                parse_config([dirty_strings,
-                    escaped_forward_slashes,
+                parse_config([escaped_forward_slashes,
                     escaped_strings,
                     unescaped_jsonp,
-                    multi_term,
+                    dirty_strings,
                     repeat_keys,
                     strict,
                     stream,
@@ -276,13 +271,12 @@ config_to_list_test_() ->
             config_to_list(#config{})
         )},
         {"all flags", ?_assertEqual(
-            [dirty_strings,
-                escaped_forward_slashes,
+            [escaped_forward_slashes,
                 escaped_strings,
-                multi_term,
+                unescaped_jsonp,
+                dirty_strings,
                 stream,
                 uescape,
-                unescaped_jsonp,
                 strict
             ],
             config_to_list(
@@ -290,7 +284,6 @@ config_to_list_test_() ->
                     escaped_strings = true,
                     unescaped_jsonp = true,
                     dirty_strings = true,
-                    multi_term = true,
                     strict_comments = true,
                     strict_utf8 = true,
                     strict_single_quotes = true,

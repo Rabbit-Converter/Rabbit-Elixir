@@ -1,19 +1,3 @@
-v2.5.2
-
-* fix regression parsing <<"-0e...">> (thanks @c-bik)
-
-v2.5.1
-
-* assume all datetimes are UTC time and add `Z` designator to indicate
-* fix parsing issue with datetimes in arrays
-
-v2.5.0
-
-* `consult/2` function for reading a file directly to a json term
-* `maps_always` build flag for always returning maps on platforms
-  that support them
-* dialyzer fixes
-
 v2.4.0
 
 * enough performance improvements to justify a new version. 2-3x

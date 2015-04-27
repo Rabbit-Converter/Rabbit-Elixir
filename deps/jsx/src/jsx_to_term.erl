@@ -23,7 +23,7 @@
 
 -module(jsx_to_term).
 
--export([to_term/2]).
+-export([to_term/2, flatify/1]).
 -export([init/1, handle_event/2]).
 -export([
     start_term/1,
@@ -57,7 +57,6 @@
 
 -ifdef(maps_support).
 -type json_value() :: list(json_value())
-    | list({binary() | atom(), json_value()})
     | map()
     | true
     | false
@@ -70,14 +69,9 @@
 
 -spec to_term(Source::binary(), Config::config()) -> json_value().
 
--ifdef(maps_always).
-to_term(Source, Config) when is_list(Config) ->
-    (jsx:decoder(?MODULE, [return_maps] ++ Config, jsx_config:extract_config(Config)))(Source).
--endif.
--ifndef(maps_always).
 to_term(Source, Config) when is_list(Config) ->
     (jsx:decoder(?MODULE, Config, jsx_config:extract_config(Config)))(Source).
--endif.
+
 
 parse_config(Config) -> parse_config(Config, #config{}).
 
@@ -246,6 +240,14 @@ get_key(_) -> erlang:error(badarg).
 
 get_value({Value, _Config}) -> Value;
 get_value(_) -> erlang:error(badarg).
+
+
+%% we know the structure of our accumulator so we can safely
+%%  flatten like this
+flatify(List) -> flatify(List, []).
+%% head of list should always be []
+flatify([], Tail) -> Tail;
+flatify([H, T], Tail) -> flatify(H, [T] ++ Tail).
 
 
 

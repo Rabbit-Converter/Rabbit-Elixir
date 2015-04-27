@@ -1,11 +1,11 @@
-# jsx (v2.5.2) #
+# jsx (v2.4) #
 
 an erlang application for consuming, producing and manipulating [json][json]. 
 inspired by [yajl][yajl]
 
-**jsx** is built via [rebar][rebar] and continuous integration testing provided courtesy [travis-ci][travis]
+**jsx** is built via [mix][mix] and continuous integration testing provided courtesy [travis-ci][travis]
 
-current status: [![Build Status](https://secure.travis-ci.org/talentdeficit/jsx.png?branch=master)](http://travis-ci.org/talentdeficit/jsx)
+current status: [![Build Status](https://secure.travis-ci.org/talentdeficit/jsx.png?branch=mix)](http://travis-ci.org/talentdeficit/jsx)
 
 **jsx** is released under the terms of the [MIT][MIT] license
 
@@ -49,9 +49,11 @@ for the overview or [migrating from 1.x](#migrating) for the details
 
 #### to build the library and run tests ####
 
+you'll need elixir installed or a standalone mix
+
 ```bash
-$ rebar compile
-$ rebar eunit
+$ mix compile
+$ mix eunit
 ```
 
 #### to convert a utf8 binary containing a json string into an erlang term ####
@@ -257,7 +259,8 @@ see below                       | `datetime()`
 
     erlang datetime tuples (`{{Year, Month, Day}, {Hour, Min, Sec}}`) as returned
     from `erlang:localtime/0` are automatically encoded as [iso8601][iso8601]
-    strings and are assumed to be UTC time. no conversion is attempted of json [iso8601][iso8601] strings in decoded json
+    strings. no conversion is attempted of json [iso8601][iso8601] strings in
+    decoded json
 
 
 ### incomplete input ###
@@ -707,12 +710,12 @@ following events must be handled:
 
 ## acknowledgements ##
 
-jsx wouldn't be what it is without the contributions of [paul davis](https://github.com/davisp), [lloyd hilaiel](https://github.com/lloyd), [john engelhart](https://github.com/johnezang), [bob ippolito](https://github.com/etrepum), [fernando benavides](https://github.com/elbrujohalcon), [alex kropivny](https://github.com/amtal), [steve strong](https://github.com/srstrong), [michael truog](https://github.com/okeuday), [devin torres](https://github.com/devinus), [dmitry kolesnikov](https://github.com/fogfish), [emptytea](https://github.com/emptytea), [john daily](https://github.com/macintux), [ola bäckström](https://github.com/olabackstrom), [joseph crowe](https://github.com/JosephCrowe), [patrick gombert](https://github.com/patrickgombert), [eskuat](https://github.com/eskuat), [max lapshin](https://github.com/maxlapshin) and [bikram chatterjee](https://github.com/c-bik)
+jsx wouldn't be what it is without the contributions of [paul davis](https://github.com/davisp), [lloyd hilaiel](https://github.com/lloyd), [john engelhart](https://github.com/johnezang), [bob ippolito](https://github.com/etrepum), [fernando benavides](https://github.com/elbrujohalcon), [alex kropivny](https://github.com/amtal), [steve strong](https://github.com/srstrong), [michael truog](https://github.com/okeuday), [devin torres](https://github.com/devinus), [dmitry kolesnikov](https://github.com/fogfish), [emptytea](https://github.com/emptytea), [john daily](https://github.com/macintux), [ola bäckström](https://github.com/olabackstrom), [joseph crowe](https://github.com/JosephCrowe), [patrick gombert](https://github.com/patrickgombert),  [eskuat](https://github.com/eskuat) and [max lapshin](https://github.com/maxlapshin)
 
 [json]: http://json.org
 [yajl]: http://lloyd.github.com/yajl
 [MIT]: http://www.opensource.org/licenses/mit-license.html
-[rebar]: https://github.com/rebar/rebar
+[mix]: https://hex.pm
 [meck]: https://github.com/eproxus/meck
 [rfc4627]: http://tools.ietf.org/html/rfc4627
 [travis]: https://travis-ci.org/
